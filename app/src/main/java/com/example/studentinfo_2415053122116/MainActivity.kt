@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -22,16 +21,16 @@ class MainActivity : AppCompatActivity() {
             fullName = "Phạm Duy Hưng",
             className = "24T1",
             age = 21,
-            score = 8.5
+            score = 8.5,
+            gender = "Nam" // thêm do có yêu cầu 6
         )
 
-        binding.tvMssv.text = "Mã sinh viên: ${student.mssv}"
-        binding.tvName.text = "Họ tên gốc: ${student.fullName}"
-        binding.tvClass.text = "Lớp: ${student.className}"
+        binding.tvExtensionInfo.text = student.getFullInfo()
+
         binding.tvAge.text = "Tuổi: ${student.age}"
-        binding.tvScore.text = "Điểm: ${student.score}"
 
-        val rank = student.getAcademicRank()
+        binding.tvGender.text = "Giới tính: ${student.gender}"
 
+        binding.tvFormattedScore.text = student.formatScore()
     }
 }
